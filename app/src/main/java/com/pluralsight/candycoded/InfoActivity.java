@@ -10,6 +10,9 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import static com.pluralsight.candycoded.DetailActivity.HASHTAG_CANDYCODED;
+import static com.pluralsight.candycoded.DetailActivity.SHARE_DESCRIPTION;
+
 public class InfoActivity extends AppCompatActivity {
 
     @Override
@@ -58,7 +61,13 @@ public class InfoActivity extends AppCompatActivity {
 
     private void createShareIntent(){
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
+        shareIntent.setType("text/plain");
+
+
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, HASHTAG_CANDYCODED );
+        shareIntent.putExtra(Intent.EXTRA_TEXT, SHARE_DESCRIPTION);
+
+        startActivity(shareIntent);
 
     }
 }
